@@ -3,33 +3,30 @@
 <head>
     <title>Vue Practice</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="app">
-        <p>{{ counter }}</p>
-        <button @click="counter += 1">+1</button>
-        <p>{{ lessThanThree }}</p>
+        <h1 :class="classObject">Hello</h1>
+        <button @click="isActive = !isActive">切り替え</button>
+
+        <h1 :class="[{red: isActive}, bg]">Hello</h1>
     </div>
 
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                counter: 0,
-                otherCounter: 0
+                isActive: true,
+                color: 'red',
+                bg: 'bg-blue'
             },
             computed: {
-                lessThanThree: function() {
-                    console.log('Computed');
-                    return this.counter > 3 ? '3より上' : '3以下'
-                }
-            },
-            watch: {
-                counter: function() {
-                    var vm = this;
-                    setTimeout(function() {
-                        vm.counter = 0
-                    }, 3000)
+                classObject: function() {
+                    return { 
+                        red: this.isActive, 
+                        'bg-blue': !this.isActive
+                    }
                 }
             }
         })
