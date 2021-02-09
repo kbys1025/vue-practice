@@ -8,10 +8,7 @@
     <div id="app">
         <p>{{ counter }}</p>
         <button @click="counter += 1">+1</button>
-        <p>{{ otherCounter }}</p>
-        <button @click="otherCounter += 1">別の+1</button>
-        <p>{{ lessThanThreeComputed }}</p>
-        <p>{{ lessThanThreeMethod() }}</p>
+        <p>{{ lessThanThree }}</p>
     </div>
 
     <script>
@@ -22,15 +19,17 @@
                 otherCounter: 0
             },
             computed: {
-                lessThanThreeComputed: function() {
+                lessThanThree: function() {
                     console.log('Computed');
                     return this.counter > 3 ? '3より上' : '3以下'
                 }
             },
-            methods: {
-                lessThanThreeMethod: function() {
-                    console.log('Method');
-                    return this.counter > 3 ? '3より上' : '3以下'
+            watch: {
+                counter: function() {
+                    var vm = this;
+                    setTimeout(function() {
+                        vm.counter = 0
+                    }, 3000)
                 }
             }
         })
