@@ -6,35 +6,31 @@
 </head>
 <body>
     <div id="app">
-        <p>現在{{ number}}クリックされています</p>
-        <button @click="countUp(3)">カウントアップ</button>
-        <p @mousemove="changeMousePosition($event, 5)">
-            マウスを載せてください
-            <span @mousemove.stop>反応しないでください</span>
-        </p>
-        <a @click.prevent href="https://google.com">Google</a>
-        <p>X: {{ x }}、Y: {{ y }}</p>
-        <input type="text" @keyup.enter="myAlert">
+        <p>{{ counter }}</p>
+        <button @click="counter += 1">+1</button>
+        <p>{{ otherCounter }}</p>
+        <button @click="otherCounter += 1">別の+1</button>
+        <p>{{ lessThanThreeComputed }}</p>
+        <p>{{ lessThanThreeMethod() }}</p>
     </div>
 
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                number: 0,
-                x: 0,
-                y: 0
+                counter: 0,
+                otherCounter: 0
+            },
+            computed: {
+                lessThanThreeComputed: function() {
+                    console.log('Computed');
+                    return this.counter > 3 ? '3より上' : '3以下'
+                }
             },
             methods: {
-                countUp: function(times) {
-                    this.number += 1 * times
-                },
-                changeMousePosition: function(event, divideNumber) {
-                    this.x = event.clientX / divideNumber;
-                    this.y = event.clientY / divideNumber;
-                },
-                myAlert() {
-                    alert('アラート!');
+                lessThanThreeMethod: function() {
+                    console.log('Method');
+                    return this.counter > 3 ? '3より上' : '3以下'
                 }
             }
         })
