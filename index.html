@@ -7,20 +7,17 @@
 </head>
 <body>
     <div id="app">
-        <h1 :style="[styleObject, baseStyles]">Hello</h1>
+        <p v-if="ok">OK!</p>
+        <p v-else-if="maybeOk">maybe OK!</p>
+        <p v-else>Not OK...</p>
     </div>
 
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                styleObject: {
-                    color: 'red',
-                    'background-color': 'blue'
-                },
-                baseStyles: {
-                    fontSize: '60px'
-                }
+                ok: false,
+                maybeOk: true
             }
         })
     </script>
