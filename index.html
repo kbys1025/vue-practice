@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Vue Practice</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <div id="app">
-        <button @click="ok = !ok">ボタン</button>
-        <p v-if="ok">If</p>
-        <p v-show="ok">Show</p>
-    </div>
-
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                ok: true,
-            }
-        })
-    </script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Practice | TODO</title>
+    </head>
+    <body>
+        <div>
+            <h1>Vue Practice</h1>
+            <ul style="list-style: none;">
+                <li><a href="todo/index.html">TODO管理アプリ</a></li>
+            </ul>
+        </div>
+    </body>
 </html>
+
