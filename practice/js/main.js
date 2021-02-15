@@ -1,6 +1,11 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue.js!'
+        price: 29800
+    },
+    filters: {
+        numberFormat: function(value) {
+            return value.toLocaleString();
+        }
     }
 })
