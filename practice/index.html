@@ -8,10 +8,7 @@
     <body>
         <a href="../index.html">ホーム</a>
         <div id="app">
-            <h2>Mustache</h2>
-            <p>{{ price | numberFormat }}</p>
-            <h2>v-bind</h2>
-            <input type="text" v-bind:value="price | numberFormat">
+            <p>{{ jpyPrice | toUSD | numberFormat }}</p>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js"></script>
