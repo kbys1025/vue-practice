@@ -5,6 +5,30 @@ Vue.filter('readMore', function(text, length, suffix) {
 var app = new Vue({
     el: '#app',
     data: {
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        message: 'Helleo Vue.js!',
+        basePrice: 100
     },
+    computed: {
+        reversedMessage: function() {
+            return this.message.split('').reverse().join('')
+        },
+        taxIncludedPrice: {
+            get: function() {
+                return parseInt(this.basePrice * 1.08);
+            },
+            set: function(taxIncludedPrice) {
+                this.basePrice = Math.ceil(taxIncludedPrice / 1.08);
+            }
+        },
+        computedNumber: function() {
+            console.log('computed!');
+            return Math.random();
+        }
+    },
+    methods: {
+        methodsNumber: function() {
+            console.log('methods!');
+            return Math.random();
+        }
+    }
 })
