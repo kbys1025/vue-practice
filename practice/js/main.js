@@ -5,30 +5,25 @@ Vue.filter('readMore', function(text, length, suffix) {
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Helleo Vue.js!',
-        basePrice: 100
+        km: 0,
+        m: 0,
+        mm: 0,
     },
-    computed: {
-        reversedMessage: function() {
-            return this.message.split('').reverse().join('')
+    watch: {
+        km: function(value) {
+            this.km = value;
+            this.m = value * 1000;
+            this.mm = value * 1000000;
         },
-        taxIncludedPrice: {
-            get: function() {
-                return parseInt(this.basePrice * 1.08);
-            },
-            set: function(taxIncludedPrice) {
-                this.basePrice = Math.ceil(taxIncludedPrice / 1.08);
-            }
+        m: function(value) {
+            this.km = value / 1000;
+            this.m = value;
+            this.mm = value * 1000;
         },
-        computedNumber: function() {
-            console.log('computed!');
-            return Math.random();
-        }
-    },
-    methods: {
-        methodsNumber: function() {
-            console.log('methods!');
-            return Math.random();
+        mm: function(value) {
+            this.km = value / 1000000;
+            this.m = value / 1000;
+            this.mm = value;
         }
     }
 })

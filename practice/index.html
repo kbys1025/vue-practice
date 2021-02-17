@@ -9,33 +9,14 @@
         <a href="../index.html">ホーム</a>
         <div id="app">
             <p>
-                {{ message.split('').reverse().join('') }}
+                <input type="text" v-model:value="km">km
             </p>
             <p>
-                {{ reversedMessage }}
+                <input type="text" v-model:value="m">m
             </p>
             <p>
-                base price: <input type="text" v-model="basePrice">
+                <input type="text" v-model:value="mm">mm
             </p>
-            <p>
-                tax included price: <input type="text" v-model="taxIncludedPrice">
-            </p>
-            <h2>
-                Computed
-            </h2>
-            <ol>
-                <li>{{ computedNumber }}</li>
-                <li>{{ computedNumber }}</li>
-                <li>{{ computedNumber }}</li>
-            </ol>
-            <h2>
-                Methods
-            </h2>
-            <ol>
-                <li>{{ methodsNumber() }}</li>
-                <li>{{ methodsNumber() }}</li>
-                <li>{{ methodsNumber() }}</li>
-            </ol>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js"></script>
