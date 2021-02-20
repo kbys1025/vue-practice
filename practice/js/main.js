@@ -1,19 +1,9 @@
 var app = new Vue({
     el: '#app',
     data: {
-        colors: [
-            { name: 'Red' },
-            { name: 'Green' },
-            { name: 'Blue' }
-        ]
+        classObject: {
+            large: true,
+            'text-danger': true
+        }
     },
-    watch: {
-        colors: {
-            handler: function(newValue, oldValue) {
-                console.log('Update!');
-            },
-            deep: true,
-            immediate: true
-        },
-    }
 })
