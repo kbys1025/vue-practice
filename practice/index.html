@@ -8,15 +8,7 @@
     <body>
         <a href="../index.html">ホーム</a>
         <div id="app">
-            <select v-model="selected" multiple>
-                <option disabled value="">Please select one</option>
-                <option>Red</option>
-                <option>Green</option>
-                <option>Blue</option>
-            </select>
-            <p>
-                {{ selected }}
-            </p>
+            <hello-component></hello-component>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js"></script>

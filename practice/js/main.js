@@ -1,6 +1,10 @@
+var helloComponent = {
+    template: '<p>Hello</p>'
+}
+
 var app = new Vue({
     el: '#app',
-    data: {
-        selected: []
+    components: {
+        'hello-component': helloComponent
     }
 })
