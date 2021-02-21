@@ -9,8 +9,12 @@
         <a href="../index.html">ホーム</a>
         <div id="app">
             <p>
-                Hello <span :class="[isLarge ? largeClass : '', dangerClass]">Vue.js!</span>
+                {{ message }}
             </p>
+            <textarea v-model="message"></textarea>
+            <pre>
+                {{ $data }}
+            </pre>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js"></script>
